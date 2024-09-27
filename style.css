@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.header h2 {
+  font-weight: 700 !important;
+}
+
+main {
+  background: #252525;
+  color: #fff;
+  height: 80vh;
+}
+
+.inputContainer  {
+  width: 80%;
+}
+
+.btn {
+  background-color: #6C63FF;
+  color: #fff;
+}
+
+.todos {
+  padding: 2rem 8rem;
+}
+
+
+.todos::-webkit-scrollbar {
+  width: 12px; 
+}
+
+.todos::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 6px;
+}
+
+.todos::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+.todos::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.todos {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+
+
+.check-input {
+  font-size: 25px;
+}
+
+.todo {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.todoText {
+  font-size: 25px;
+  font-weight: 800;
+  margin-bottom: 0;
+  position: relative;
+  top: 1.75px;
+}
+
+hr {
+  border: 1px solid #9C9C9C;
+}
+
+.modalBTN {
+  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.5), 0 0 25px rgba(108, 99, 255, 0.3);
+}
+
+.modal {
+  color: black;
+}
+
