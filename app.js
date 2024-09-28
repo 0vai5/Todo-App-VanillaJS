@@ -2,11 +2,10 @@ const todoTitle = document.getElementById('title');
 const todoDesc = document.getElementById('desc');
 const createTodoBtn = document.getElementById('createTodoBtn');
 const Todos = document.getElementById('todoContainer');
-const searchBtn = document.getElementById('searchBtn');
 const searchInput = document.getElementById('searchInput');
 
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
-let id = todos.length ? Math.max(todos.map(todo => todo.id)) + 1 : 0; 
+let id = todos.length ? Math.max(todos.map(todo => todo.id)) + 1 : 0;
 
 function saveTodos() {
     localStorage.setItem('todos', JSON.stringify(todos));
@@ -33,7 +32,7 @@ function displayTodos(todosToDisplay = todos) {
         checkbox.addEventListener('change', () => {
             todo.completed = checkbox.checked;
             saveTodos(); // Save the updated todos
-            displayTodos(); 
+            displayTodos();
         });
 
         Todos.appendChild(todoElement);
@@ -44,7 +43,7 @@ createTodoBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const title = todoTitle.value.trim();
     const desc = todoDesc.value.trim();
-    
+
     if (title && desc) {
         const newTodo = {
             id: id++,
@@ -52,13 +51,13 @@ createTodoBtn.addEventListener('click', (e) => {
             desc,
             completed: false
         };
-        
+
         todos.push(newTodo);
         console.log('New todo Created', todos);
         saveTodos(); // Save the new todo to local storage
         displayTodos();
         todoTitle.value = '';
-        todoDesc.value = ''; 
+        todoDesc.value = '';
     } else {
         alert('Please fill in all fields');
     }
@@ -67,18 +66,17 @@ createTodoBtn.addEventListener('click', (e) => {
 // Load todos from local storage when the page is loaded
 displayTodos();
 
-searchBtn.addEventListener('click', () => {
-    const searchTerm = searchInput.value.trim().toLowerCase();
-    const filteredArray = todos.filter(todo => 
-        todo.title.toLowerCase().includes(searchTerm) || 
-        todo.desc.toLowerCase().includes(searchTerm)
+searchInput.addEventListener('input', (e) => {
+    const searchValue = e.target.value.toLowerCase();
+    const filteredTodos = todos.filter(todo => 
+        todo.title.toLowerCase().includes(searchValue) || 
+        todo.desc.toLowerCase().includes(searchValue)
     );
-    console.log(filteredArray);
-    displayTodos(filteredArray);
-});
-
+    console.log(filteredTodos)
+    displayTodos(filteredTodos);
+})
 searchInput.addEventListener('input', () => {
     if (searchInput.value.trim() === '') {
-        displayTodos(); 
+        displayTodos();
     }
 });
